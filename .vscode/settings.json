@@ -1,0 +1,13 @@
+{
+    "editor.rulers": [
+        88
+    ],
+    "editor.wordWrapColumn": 88,
+    "yaml.format.printWidth": 88,
+    "cSpell.words": [
+        "Aquarion",
+        "asychronous",
+        "ochistration",
+        "webclient"
+    ]
+}
