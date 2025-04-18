@@ -4,14 +4,6 @@ This document describes and diagrams the core architectural components of Aquari
 shows various ways in which they can be assembled in order to balance scalability vs
 complexity.
 
-## Table of Contents
-
-**NOTE:** _(GitHub render test)_
-
-_[[TOC]]_
-
-[TOC]
-
 ## Introduction
 
 The overall architectural plan is to be modular enough to support multiple backends and
@@ -42,7 +34,7 @@ And, of course, each component can be scaled horizontally, load balanced, etc.
      webclient(Web Client)
      cli("Command Line Interface (CLI)")
      mobile(Mobile App)
-     direct{{Direct Usage}}
+     ext{{External Usage}}
    end
 
    subgraph back[Back End]
@@ -63,7 +55,7 @@ And, of course, each component can be scaled horizontally, load balanced, etc.
 
    webclient <--> webserver
    webclient & cli & mobile <---> broker
-   direct <--> api
+   ext <--> api
 ```
 
 ### Diagram 2: Distributed, Scalable System Variant B
@@ -225,13 +217,13 @@ requirements.  And it could even be slower overall, in principle.  ... Or not.
 
      subgraph server[Aquarion Service]
        direction LR
-       stt("Speech To Text (STT)")
-       llm("Large Language Model (LLM)")
-       tts("Text To Speech (TTS)")
-       prompt(Prompt Augmentation)
-       head(Talking Head)
-       api("Application Programming Interface (API)")
-       auth(Identity Management)
+       stt(["Speech To Text (STT)"])
+       llm(["Large Language Model (LLM)"])
+       tts(["Text To Speech (TTS)"])
+       prompt([Prompt Augmentation])
+       head([Talking Head])
+       api(["Application Programming Interface (API)"])
+       auth([Identity Management])
      end
    end
 
@@ -271,14 +263,14 @@ principle.  ... Or not.
 
      subgraph server[Aquarion Service]
        direction LR
-       webserver(Web Server)
-       stt("Speech To Text (STT)")
-       llm("Large Language Model (LLM)")
-       tts("Text To Speech (TTS)")
-       prompt(Prompt Augmentation)
-       head(Talking Head)
-       api("Application Programming Interface (API)")
-       auth(Identity Management)
+       webserver([Web Server])
+       stt(["Speech To Text (STT)"])
+       llm(["Large Language Model (LLM)"])
+       tts(["Text To Speech (TTS)"])
+       prompt([Prompt Augmentation])
+       head([Talking Head])
+       api(["Application Programming Interface (API)"])
+       auth([Identity Management])
      end
    end
 
@@ -315,14 +307,14 @@ slower overall, in principle.  ... Or not.
    subgraph back[Back End]
      subgraph server[Aquarion Service]
        direction LR
-       webserver(Web Server)
-       stt("Speech To Text (STT)")
-       llm("Large Language Model (LLM)")
-       tts("Text To Speech (TTS)")
-       prompt(Prompt Augmentation)
-       head(Talking Head)
-       api("Application Programming Interface (API)")
-       auth(Identity Management)
+       webserver([Web Server])
+       stt(["Speech To Text (STT)"])
+       llm(["Large Language Model (LLM)"])
+       tts(["Text To Speech (TTS)"])
+       prompt([Prompt Augmentation])
+       head([Talking Head])
+       api(["Application Programming Interface (API)"])
+       auth([Identity Management])
        db[("State Storage")]
      end
    end
@@ -359,13 +351,13 @@ user to have sufficient local GPU / TPU capability on their own computer.
 
      subgraph server[Internal Server]
        direction LR
-       webserver(Web Server)
-       stt("Speech To Text (STT)")
-       llm("Large Language Model (LLM)")
-       tts("Text To Speech (TTS)")
-       prompt(Prompt Augmentation)
-       head(Talking Head)
-       api("Application Programming Interface (API)")
+       webserver([Web Server])
+       stt(["Speech To Text (STT)"])
+       llm(["Large Language Model (LLM)"])
+       tts(["Text To Speech (TTS)"])
+       prompt([Prompt Augmentation])
+       head([Talking Head])
+       api(["Application Programming Interface (API)"])
        db[("State Storage")]
      end
 
@@ -400,12 +392,12 @@ if a desktop GUI is used, it would not be a reusable component.
 
    subgraph app[Aquarion Application]
      direction LR
-     ui(User interface)
-     stt("Speech To Text (STT)")
-     llm("Large Language Model (LLM)")
-     tts("Text To Speech (TTS)")
-     prompt(Prompt Augmentation)
-     head(Talking Head)
+     ui[/User interface\]
+     stt(["Speech To Text (STT)"])
+     llm(["Large Language Model (LLM)"])
+     tts(["Text To Speech (TTS)"])
+     prompt([Prompt Augmentation])
+     head([Talking Head])
      db[("State Storage")]
    end
 
