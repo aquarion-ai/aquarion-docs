@@ -28,34 +28,34 @@ demand for it.
 And, of course, each component can be scaled horizontally, load balanced, etc.
 
 ```mermaid
-   graph LR
-  
-   subgraph front[Front End]
-     webclient(Web Client)
-     cli("Command Line Interface (CLI)")
-     mobile(Mobile App)
-     ext{{External Usage}}
-   end
+graph LR
 
-   subgraph back[Back End]
-     stt("Speech To Text (STT)")
-     llm("Large Language Model (LLM)")
-     tts("Text To Speech (TTS)")
-     broker{Event Broker}
-     prompt(Prompt Augmentation)
-     db[("State Storage")]
-     head(Talking Head)
-     webserver(Web Server)
-     auth(Identity Management)
-     api("Application Programming Interface (API)")
+subgraph front[Front End]
+  webclient(Web Client)
+  cli("Command Line Interface (CLI)")
+  mobile(Mobile App)
+  ext{{External Usage}}
+end
 
-     broker <--> auth & stt & llm & tts & head & prompt & db
-     api <--> broker
-   end
+subgraph back[Back End]
+  stt("Speech To Text (STT)")
+  llm("Large Language Model (LLM)")
+  tts("Text To Speech (TTS)")
+  broker{Event Broker}
+  prompt(Prompt Augmentation)
+  db[("State Storage")]
+  head(Talking Head)
+  webserver(Web Server)
+  auth(Identity Management)
+  api("Application Programming Interface (API)")
 
-   webclient <--> webserver
-   webclient & cli & mobile <---> broker
-   ext <--> api
+  broker <--> auth & stt & llm & tts & head & prompt & db
+  api <--> broker
+end
+
+webclient <--> webserver
+webclient & cli & mobile <---> broker
+ext <--> api
 ```
 
 ### Diagram 2: Distributed, Scalable System Variant B
@@ -72,33 +72,33 @@ organization.
 And, of course, each component can be scaled horizontally, load balanced, etc.
 
 ```mermaid
-   graph LR
+graph LR
 
-   subgraph front[Front End]
-     webclient(Web User Client)
-     cli("Command Line Interface (CLI)")
-     mobile(Mobile App)
-     direct{{Direct Usage}}
-   end
+subgraph front[Front End]
+  webclient(Web User Client)
+  cli("Command Line Interface (CLI)")
+  mobile(Mobile App)
+  direct{{Direct Usage}}
+end
 
-   subgraph back[Back End]
-     stt("Speech To Text (STT)")
-     llm("Large Language Model (LLM)")
-     tts("Text To Speech (TTS)")
-     broker{Event Broker}
-     prompt(Prompt Augmentation)
-     db[("State Storage")]
-     head(Talking Head)
-     api("Application Programming Interface (API)")
-     webserver(Web Server)
-     auth(Identity Management)
+subgraph back[Back End]
+  stt("Speech To Text (STT)")
+  llm("Large Language Model (LLM)")
+  tts("Text To Speech (TTS)")
+  broker{Event Broker}
+  prompt(Prompt Augmentation)
+  db[("State Storage")]
+  head(Talking Head)
+  api("Application Programming Interface (API)")
+  webserver(Web Server)
+  auth(Identity Management)
 
-     api <--> broker
-     broker <--> auth & stt & llm & tts & head & prompt & db
-   end
+  api <--> broker
+  broker <--> auth & stt & llm & tts & head & prompt & db
+end
 
-   webclient <--> webserver
-   webclient & cli & direct & mobile <--> api
+webclient <--> webserver
+webclient & cli & direct & mobile <--> api
 ```
 
 ### Diagram 3: Distributed, Scalable System Variant C
@@ -119,31 +119,31 @@ components more difficult.
 And, of course, each component can be scaled horizontally, load balanced, etc.
 
 ```mermaid
-   graph LR
+graph LR
 
-   subgraph front[Front End]
-     webclient(Web User Client)
-     cli("Command Line Interface (CLI)")
-     mobile(Mobile App)
-     direct{{Direct Usage}}
-   end
+subgraph front[Front End]
+  webclient(Web User Client)
+  cli("Command Line Interface (CLI)")
+  mobile(Mobile App)
+  direct{{Direct Usage}}
+end
 
-   subgraph back[Back End]
-     stt("Speech To Text (STT)")
-     llm("Large Language Model (LLM)")
-     tts("Text To Speech (TTS)")
-     prompt(Prompt Augmentation)
-     db[("State Storage")]
-     head(Talking Head)
-     api("Application Programming Interface (API)")
-     webserver(Web Server)
-     auth(Identity Management)
+subgraph back[Back End]
+  stt("Speech To Text (STT)")
+  llm("Large Language Model (LLM)")
+  tts("Text To Speech (TTS)")
+  prompt(Prompt Augmentation)
+  db[("State Storage")]
+  head(Talking Head)
+  api("Application Programming Interface (API)")
+  webserver(Web Server)
+  auth(Identity Management)
 
-     api <--> auth & stt & llm & tts & head & prompt & db
-   end
+  api <--> auth & stt & llm & tts & head & prompt & db
+end
 
-   webclient <--> webserver
-   webclient & cli & direct & mobile <--> api
+webclient <--> webserver
+webclient & cli & direct & mobile <--> api
 ```
 
 ### Diagram 4: Distributed, Scalable System Variant D
@@ -158,28 +158,28 @@ _Clearly this architecture is clearly a nightmare.  We will **not** be implement
 I principle, however, each component can be scaled horizontally, load balanced, etc.
 
 ```mermaid
-   graph LR
+graph LR
 
-   subgraph front[Front End]
-     webclient(Web User Client)
-     cli("Command Line Interface (CLI)")
-     mobile(Mobile App)
-     direct{{Direct Usage}}
-   end
+subgraph front[Front End]
+  webclient(Web User Client)
+  cli("Command Line Interface (CLI)")
+  mobile(Mobile App)
+  direct{{Direct Usage}}
+end
 
-   subgraph back[Back End]
-     stt("Speech To Text (STT)")
-     llm("Large Language Model (LLM)")
-     tts("Text To Speech (TTS)")
-     prompt(Prompt Augmentation)
-     db[("State Storage")]
-     head(Talking Head)
-     webserver(Web Server)
-     auth(Identity Management)
-   end
+subgraph back[Back End]
+  stt("Speech To Text (STT)")
+  llm("Large Language Model (LLM)")
+  tts("Text To Speech (TTS)")
+  prompt(Prompt Augmentation)
+  db[("State Storage")]
+  head(Talking Head)
+  webserver(Web Server)
+  auth(Identity Management)
+end
 
-   webclient <--> webserver
-   webclient & cli & direct & mobile <--> auth & stt & llm & tts & head & prompt & db
+webclient <--> webserver
+webclient & cli & direct & mobile <--> auth & stt & llm & tts & head & prompt & db
 ```
 
 ## Single Server, Vertically Scalable System
@@ -202,34 +202,34 @@ reduces IPC overhead, it could force the use of smaller LLM models or greater GP
 requirements.  And it could even be slower overall, in principle.  ... Or not.
 
 ```mermaid
-   graph LR
+graph LR
 
-   subgraph front[Front End]
-     webclient(Web User Client)
-     cli("Command Line Interface (CLI)")
-     mobile(Mobile App)
-     direct{{Direct Usage}}
-   end
+subgraph front[Front End]
+  webclient(Web User Client)
+  cli("Command Line Interface (CLI)")
+  mobile(Mobile App)
+  direct{{Direct Usage}}
+end
 
-   subgraph back[Back End]
-     webserver(Web Server)
-     db[("State Storage")]
+subgraph back[Back End]
+  webserver(Web Server)
+  db[("State Storage")]
 
-     subgraph server[Aquarion Service]
-       direction LR
-       stt(["Speech To Text (STT)"])
-       llm(["Large Language Model (LLM)"])
-       tts(["Text To Speech (TTS)"])
-       prompt([Prompt Augmentation])
-       head([Talking Head])
-       api(["Application Programming Interface (API)"])
-       auth([Identity Management])
-     end
-   end
+  subgraph server[Aquarion Service]
+    direction LR
+    stt(["Speech To Text (STT)"])
+    llm(["Large Language Model (LLM)"])
+    tts(["Text To Speech (TTS)"])
+    prompt([Prompt Augmentation])
+    head([Talking Head])
+    api(["Application Programming Interface (API)"])
+    auth([Identity Management])
+  end
+end
 
-   webclient <--> webserver
-   webclient & cli & direct & mobile <--> server
-   server <--> db
+webclient <--> webserver
+webclient & cli & direct & mobile <--> server
+server <--> db
 ```
 
 ### Diagram 6: Single Server System Variant B
@@ -249,33 +249,33 @@ smaller LLM models or greater GPU requirements.  And it could even be slower ove
 principle.  ... Or not.
 
 ```mermaid
-   graph LR
+graph LR
 
-   subgraph front[Front End]
-     webclient(Web User Client)
-     cli("Command Line Interface (CLI)")
-     mobile(Mobile App)
-     direct{{Direct Usage}}
-   end
+subgraph front[Front End]
+  webclient(Web User Client)
+  cli("Command Line Interface (CLI)")
+  mobile(Mobile App)
+  direct{{Direct Usage}}
+end
 
-   subgraph back[Back End]
-     db[("State Storage")]
+subgraph back[Back End]
+  db[("State Storage")]
 
-     subgraph server[Aquarion Service]
-       direction LR
-       webserver([Web Server])
-       stt(["Speech To Text (STT)"])
-       llm(["Large Language Model (LLM)"])
-       tts(["Text To Speech (TTS)"])
-       prompt([Prompt Augmentation])
-       head([Talking Head])
-       api(["Application Programming Interface (API)"])
-       auth([Identity Management])
-     end
-   end
+  subgraph server[Aquarion Service]
+    direction LR
+    webserver([Web Server])
+    stt(["Speech To Text (STT)"])
+    llm(["Large Language Model (LLM)"])
+    tts(["Text To Speech (TTS)"])
+    prompt([Prompt Augmentation])
+    head([Talking Head])
+    api(["Application Programming Interface (API)"])
+    auth([Identity Management])
+  end
+end
 
-   webclient & cli & mobile & direct <--> server
-   server <--> db
+webclient & cli & mobile & direct <--> server
+server <--> db
 ```
 
 ### Diagram 7: Single Server System Variant C
@@ -295,31 +295,31 @@ force the use of smaller LLM models or greater GPU requirements.  And it could e
 slower overall, in principle.  ... Or not.
 
 ```mermaid
-   graph LR
+graph LR
 
-   subgraph front[Front End]
-     webclient(Web User Client)
-     cli("Command Line Interface (CLI)")
-     mobile(Mobile App)
-     direct{{Direct Usage}}
-   end
+subgraph front[Front End]
+  webclient(Web User Client)
+  cli("Command Line Interface (CLI)")
+  mobile(Mobile App)
+  direct{{Direct Usage}}
+end
 
-   subgraph back[Back End]
-     subgraph server[Aquarion Service]
-       direction LR
-       webserver([Web Server])
-       stt(["Speech To Text (STT)"])
-       llm(["Large Language Model (LLM)"])
-       tts(["Text To Speech (TTS)"])
-       prompt([Prompt Augmentation])
-       head([Talking Head])
-       api(["Application Programming Interface (API)"])
-       auth([Identity Management])
-       db[("State Storage")]
-     end
-   end
+subgraph back[Back End]
+  subgraph server[Aquarion Service]
+    direction LR
+    webserver([Web Server])
+    stt(["Speech To Text (STT)"])
+    llm(["Large Language Model (LLM)"])
+    tts(["Text To Speech (TTS)"])
+    prompt([Prompt Augmentation])
+    head([Talking Head])
+    api(["Application Programming Interface (API)"])
+    auth([Identity Management])
+    db[("State Storage")]
+  end
+end
 
-   webclient & cli & mobile & direct <--> server
+webclient & cli & mobile & direct <--> server
 ```
 
 ## Desktop Application
@@ -330,40 +330,38 @@ be scaled down to a single, all-in-one desktop application as well.
 ### Diagram 8: Desktop Application Variant A
 
 In this desktop application variant, the application process spins up an internal
-backend service and then presents the Web Client interface as the application main
-window. This could be accomplished by building an Electron application, for example, or
-using a similar kind of framework.  As with the single server variants above, all
-inter-component communication is handled within the internal server in a multi-threaded,
-or multi-process or asychronous safe manner.  This would still require the Web Client to
-be built as a Single Page Application (SPA) or but it does still allow for the other
+backend service and then presents the Web-based User Interface (UI) as the application
+main window. This could be accomplished by building an Electron application, for
+example, or using a similar kind of framework.  All inter-component communication would
+be handled within via a Remote Procedure Call (RPC) API or other Inter-Process
+Communication (IPC) method for simplicity and performance.  This would still require the
+UI to be built using Web-based technologies, but it does still allow for the other
 components to be coded in a programming language other than JavaScript. Also, the State
 Storage would be handled internally via embedded database or files on disk, etc.
-
 This architecture provides a simplified single user experience but also requires the
 user to have sufficient local GPU / TPU capability on their own computer.
 
 ```mermaid
-   graph LR
+graph LR
 
-   subgraph app[Aquarion Application]
-     direction LR
-     webclient(Web User Client)
+subgraph app[Aquarion Application]
+  direction LR
+  webui(Web User Interface)
 
-     subgraph server[Internal Server]
-       direction LR
-       webserver([Web Server])
-       stt(["Speech To Text (STT)"])
-       llm(["Large Language Model (LLM)"])
-       tts(["Text To Speech (TTS)"])
-       prompt([Prompt Augmentation])
-       head([Talking Head])
-       api(["Application Programming Interface (API)"])
-       db[("State Storage")]
-     end
+  subgraph sub[Internal Subprocess]
+    direction LR
+    rpc([RPC API])
+    stt(["Speech To Text (STT)"])
+    llm(["Large Language Model (LLM)"])
+    tts(["Text To Speech (TTS)"])
+    prompt([Prompt Augmentation])
+    head([Talking Head])
+    api(["Application Programming Interface (API)"])
+    db[("State Storage")]
+  end
 
-     webclient <--> server
-   end
-
+  webui <--> sub
+end
 ```
 
 ### Diagram 9: Desktop Application Variant B
@@ -388,19 +386,18 @@ user to have sufficient local GPU / TPU capability on their own device.  Additio
 if a desktop GUI is used, it would not be a reusable component.
 
 ```mermaid
-   graph LR
+graph LR
 
-   subgraph app[Aquarion Application]
-     direction LR
-     ui[/User interface\]
-     stt(["Speech To Text (STT)"])
-     llm(["Large Language Model (LLM)"])
-     tts(["Text To Speech (TTS)"])
-     prompt([Prompt Augmentation])
-     head([Talking Head])
-     db[("State Storage")]
-   end
-
+subgraph app[Aquarion Application]
+  direction LR
+  ui[/User interface\]
+  stt(["Speech To Text (STT)"])
+  llm(["Large Language Model (LLM)"])
+  tts(["Text To Speech (TTS)"])
+  prompt([Prompt Augmentation])
+  head([Talking Head])
+  db[("State Storage")]
+end
 ```
 
 ## Concluding Thoughts
