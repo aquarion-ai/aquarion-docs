@@ -1,4 +1,4 @@
-# Aquarion AI - Project Repository
+# Aquarion AI - Backend Components
 
 Experiment in creating a scalable local AI voice chat bot.
 
@@ -13,9 +13,8 @@ enough to support multiple alternate STT, LLM and TTS models/engines/options.
 
 ## About this Repository
 
-This is the project-level repository for Aquarion AI.  It does not contain code.  It it
-used for to-do items, bug reports, and documentation for the whole project.  There are
-separate individual code repositories for the various parts of this project.
+The repository contains the core code for the backend components.  Various frontends and
+various way to package / deploy these components will be coded elsewhere.
 
 ## Disclaimer
 
