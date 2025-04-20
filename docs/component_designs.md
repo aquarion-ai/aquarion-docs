@@ -1,22 +1,24 @@
 # Conceptual Component Designs
 
 This document describes and diagrams the core design ideas of each component of
-Aquarion and shows various alternative ways they could be built.
+Aquarion AI and shows various alternative ways they could be built.
 
 ## Introduction
 
 The overall design plan is for each component to have a modular front interface, back
-interface and core logic in the middle.  This way not only can Aquarion support
-multiple different kinds of third-party components but also each Aquarion component can
-be combined in different architectural patterns and using a variety of protocols to
+interface and core logic in the middle.  This way not only can Aquarion AI support
+multiple different kinds of third-party components but also each Aquarion AI component
+can be combined in different architectural patterns and using a variety of protocols to
 communicate with each other.
 
-_The key idea is to be able to mix and match the front and back parts while preserving the core logic.  This should be possible by having clear interface contracts between
-each of the 3 parts._
+_The key idea is to be able to mix and match the front and back parts while preserving
+he core logic.  This should be possible by having clear interface contracts between each
+of the 3 parts._
 
 ## Event Driven Microservice Designs
 
-All the variants below assume an Event Driven Architecture (EDA) with an Event Broker component as the central component.
+All the variants below assume an Event Driven Architecture (EDA) with an Event Broker
+component as the central component.
 
 ### Diagram 1: EDA Microservice Variant A
 
@@ -302,15 +304,15 @@ req <--> front
 
 ## Monolithic Service Designs
 
-While the above designs split each Aquarion component out in to separate microservices
-using a variety of interconnection styles, one could also directly interact with each
-component's core logic module within a single monolithic service design.  This
-simplifies complexity and reduces latency when scaling and distributed computing are not
-the most important concerns.
+While the above designs split each Aquarion AI component out in to separate
+microservices using a variety of interconnection styles, one could also directly
+interact with each component's core logic module within a single monolithic service
+design.  This simplifies complexity and reduces latency when scaling and distributed
+computing are not the most important concerns.
 
 ### Diagram 10: Monolithic Service Variant A
 
-In this monolithic service variant, all Aquarion components are included in a single
+In this monolithic service variant, all Aquarion AI components are included in a single
 service.  External requests are simply routed to the appropriate component through an
 internal queue and then processed by one or more workers.  The workers can be
 implemented in a multi-processing, multi-threaded or asynchronous way.
@@ -331,7 +333,7 @@ graph LR
 
 req(External Requester)
 
-subgraph service[Aquarion Service]
+subgraph service[Aquarion AI Service]
   front([P2P Frontend Adapter])
   router([Request Router])
   queue_1{{Component 1 Queue}}
@@ -364,7 +366,7 @@ req <--> front
 
 ### Diagram 11: Monolithic Service Variant B
 
-In this monolithic service variant, all Aquarion components are included in a single
+In this monolithic service variant, all Aquarion AI components are included in a single
 service.  External requests are dispatched through an internal queue to workers that
 each orchestrate the full interaction with all components and then return the results.
 The workers can be implemented in a multi-processing, multi-threaded or asynchronous
@@ -386,7 +388,7 @@ graph LR
 
 req(External Requester)
 
-subgraph service[Aquarion Service]
+subgraph service[Aquarion AI Service]
   front([P2P Frontend Adapter])
   dispatch([Request Dispatcher])
   queue{{Request Queue}}
@@ -438,7 +440,7 @@ Examples of this style could include:
 ```mermaid
 graph LR
 
-subgraph app[Aquarion App]
+subgraph app[Aquarion AI App]
   direction LR
 
   webui([Web User Interface])
@@ -476,7 +478,7 @@ Examples of this style could include:
 ```mermaid
 graph LR
 
-subgraph app[Aquarion App]
+subgraph app[Aquarion AI App]
   direction LR
 
   ui([User Interface])

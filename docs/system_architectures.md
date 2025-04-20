@@ -1,7 +1,7 @@
 # Conceptual System Architectures
 
-This document describes and diagrams the core architectural components of Aquarion and
-shows various ways in which they can be assembled in order to balance scalability vs
+This document describes and diagrams the core architectural components of Aquarion AI
+and shows various ways in which they can be assembled in order to balance scalability vs
 complexity.
 
 ## Introduction
@@ -215,7 +215,7 @@ subgraph back[Back End]
   webserver(Web Server)
   db[("State Storage")]
 
-  subgraph server[Aquarion Service]
+  subgraph server[Aquarion AI Service]
     direction LR
     stt(["Speech To Text (STT)"])
     llm(["Large Language Model (LLM)"])
@@ -261,7 +261,7 @@ end
 subgraph back[Back End]
   db[("State Storage")]
 
-  subgraph server[Aquarion Service]
+  subgraph server[Aquarion AI Service]
     direction LR
     webserver([Web Server])
     stt(["Speech To Text (STT)"])
@@ -305,7 +305,7 @@ subgraph front[Front End]
 end
 
 subgraph back[Back End]
-  subgraph server[Aquarion Service]
+  subgraph server[Aquarion AI Service]
     direction LR
     webserver([Web Server])
     stt(["Speech To Text (STT)"])
@@ -324,8 +324,8 @@ webclient & cli & mobile & direct <--> server
 
 ## Desktop Application
 
-All of the above variants assume a client <-> server architecture.  But Aquarion could
-be scaled down to a single, all-in-one desktop application as well.
+All of the above variants assume a client <-> server architecture.  But Aquarion AI
+could be scaled down to a single, all-in-one desktop application as well.
 
 ### Diagram 8: Desktop Application Variant A
 
@@ -344,7 +344,7 @@ user to have sufficient local GPU / TPU capability on their own computer.
 ```mermaid
 graph LR
 
-subgraph app[Aquarion Application]
+subgraph app[Aquarion AI Application]
   direction LR
   webui(Web User Interface)
 
@@ -388,7 +388,7 @@ if a desktop GUI is used, it would not be a reusable component.
 ```mermaid
 graph LR
 
-subgraph app[Aquarion Application]
+subgraph app[Aquarion AI Application]
   direction LR
   ui[/User interface\]
   stt(["Speech To Text (STT)"])
