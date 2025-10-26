@@ -1,0 +1,13 @@
+{
+    "recommendations": [
+        "streetsidesoftware.code-spell-checker",
+        "vivaxy.vscode-conventional-commits",
+        "bierner.markdown-mermaid",
+        "davidanson.vscode-markdownlint",
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+        "redhat.vscode-yaml",
+        "editorconfig.editorconfig",
+        "be5invis.toml",
+        "tamasfe.even-better-toml",
+    ]
+}

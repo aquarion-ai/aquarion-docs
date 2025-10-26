@@ -1,0 +1,11 @@
+Aquarion
+asychronous
+FOSS
+frontends
+Kokoro
+libtts
+ochistration
+Ollama
+webclient
+webui
+zerorpc
