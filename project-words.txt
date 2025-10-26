@@ -3,6 +3,7 @@ asychronous
 FOSS
 frontends
 Kokoro
+Krys
 libtts
 ochistration
 Ollama
