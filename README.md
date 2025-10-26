@@ -26,8 +26,47 @@ be modular enough to support multiple alternate STT, LLM and TTS models/engines/
 
 This repository contains the top-level documentation for Aquarion AI.
 
-## Disclaimer
+## Installation
+
+*To be determined.*
+
+## Usage
+
+*To be determined.*
+
+## Support
+
+### Disclaimer
 
 While this project is FOSS and you are welcome to use it, know that I am making this for
 myself. So do not expect any kind of support or updates or maintenance or longevity.
 *Caveat Emptor*.
+
+## Roadmap
+
+- Create generated and hosted pretty documentation.
+- Document each component as it becomes ready for use.
+- Create overall user documentation once there is a user-facing application.
+
+## Contributing
+
+*To be documented.*
+
+## Authors and Acknowledgements
+
+Aquarion AI and *aquarion-docs* were created by Krys Lawrence.
+
+## Copyright and Licence
+
+- `aquarion-docs` is © 2025-present by Krys Lawrence.
+
+- `aquarion-docs` code is licensed under the terms of the
+  [AGPL-3.0-only](https://www.gnu.org/licenses/agpl-3.0.en.html#license-text) licence.
+
+- `aquarion-docs` documentation is licensed under the terms of the
+  [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) licence.
+
+## Project Status
+
+This project is in the Pre-Alpha stage of development.  Early days, lots of bugs and
+anything change.
