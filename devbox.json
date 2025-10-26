@@ -1,0 +1,21 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.16.0/.schema/devbox.schema.json",
+    "description": "Set up base environment and non-Python dev tools for aquarion-docs.",
+    "env": {
+        "AQ_COMMITIZEN_MINIMUM_VERSION": "4.9.1",
+        "AQ_CZ_CONVENTIONAL_GITMOJI_MINIMUM_VERSION": "0.7.0",
+        "AQ_HATCH_MINIMUM_VERSION": "1.14.2",
+        "AQ_PRE_COMMIT_MINIMUM_VERSION": "4.3.0",
+        "AQ_PYTHON_MINIMUM_VERSION": "3.12.11",
+        "AQ_REUSE_MINIMUM_VERSION": "6.1.2",
+        "PATH": "$PWD/scripts/:$PATH",
+        "UV_NO_SYNC": "true"
+    },
+    "name": "Aquarion AI - aquarion-docs dev and CI environment",
+    "packages": {
+        "markdownlint-cli2": "0.18.1",
+        "nushell": "0.106.1",
+        "trivy": "0.66.0",
+        "uv": "0.8.14"
+    }
+}

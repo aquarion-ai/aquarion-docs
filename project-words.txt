@@ -1,10 +1,14 @@
 Aquarion
 asychronous
+devbox
 FOSS
 frontends
+GITMOJI
+ionide
 Kokoro
 Krys
 libtts
+nushell
 ochistration
 Ollama
 webclient
