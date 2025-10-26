@@ -1,0 +1,159 @@
+#!/usr/bin/env nu
+# SPDX-FileCopyrightText: 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# Part of the aquarion-docs component of the Aquarion AI project.
+# Copyright (C) 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+#
+# This program is free software: you can redistribute it and/or modify it under the
+# terms of the GNU Affero General Public License as published by the Free Software
+# Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+### Default commands
+
+# Check code for quality and correctness.
+#
+# Running `check` without a sub-command is the same as running `check commit`.
+def main []: nothing -> string {
+    main commit
+}
+
+# Run all checks and tests.
+#
+# Currently this is the same as running `check push`
+def "main all" []: nothing -> string {
+    main push
+}
+
+### Grouped tasks
+
+# Run all checks that should pass before committing.
+#
+# This performs the following checks in order and stops on the first failure:
+#
+#   - Pre-Commit checks
+def "main commit" []: nothing -> string {
+    main pre
+}
+
+# Run all checks that should pass before pushing.
+#
+# This performs the following checks in order and stops on the first failure:
+#
+#   - All the checks from `check commit`
+#   - Pre-Push checks
+#   - All the checks from `check sec`
+#   - Licence checking
+def "main push" []: nothing -> string {
+    main pre all
+    main sec
+    main licences
+}
+
+# Run all security checks.
+#
+# This performs the following checks in order and stops on the first failure:
+#
+#   - Vulnerabilities
+#   - Secrets
+def "main sec" []: nothing -> string {
+    main sec vuln
+    main sec secret
+}
+
+
+### Individual checking tasks
+
+# Run almost all pre-commit hooks on all files.
+#
+# The `check_commit` hook is not run.  Run `check commit` separately for that.
+def --wrapped "main pre" [
+    ...rest: string # Extra arguments for pre-commit
+]: nothing -> any {
+    let $temp_config = (filter_pre_commit_config "check_commit" "check_push")
+    echo $temp_config
+    pre-commit run -c $temp_config --all-files ...$rest
+    rm $temp_config
+}
+
+# Run almost all pre-push hooks on all files.
+#
+# The `check_push` hook is not run.  Run `check push` separately for that.
+def --wrapped "main pre push" [
+    ...rest: string # Extra arguments for pre-commit
+]: nothing -> string {
+    main pre --hook-stage pre-push ...$rest
+}
+
+# Run almost all pre-commit and pre-push hooks on all files.
+#
+# The `check_commit` and `check_push` hooks are not run.  Run `check push` separately
+# for that.
+def --wrapped "main pre all" [
+    ...rest: string # Extra arguments for pre-commit
+]: nothing -> string {
+    print Pre-commit...
+    main pre ...$rest
+    print Pre-push...
+    main pre push
+}
+
+# Run licensing checks on all files
+def --wrapped "main licences" [
+    ...rest: string # Extra arguments for pre-commit
+]: nothing -> string {
+    reuse lint
+}
+
+### Individual security tasks
+
+# Check dependencies for security vulnerabilities.
+def "main sec vuln" []: nothing -> string {
+    let project_root = (git rev-parse --show-toplevel | str trim)
+    let trivy_cache_path = ($project_root | path join ".cache" "trivy")
+    let report_path = ($trivy_cache_path | path join "report.json")
+    let ignorefile_path = ($project_root | path join ".trivyignore.yaml")
+    mkdir $trivy_cache_path
+    (
+        trivy fs . --scanners vuln --include-dev-deps -f json -o $report_path
+        --ignorefile $ignorefile_path --show-suppressed
+    )
+    trivy convert --scanners vuln $report_path --show-suppressed
+    (
+        # --format template without a template silences output.
+        trivy fs . --scanners vuln --include-dev-deps --severity HIGH,CRITICAL
+        --exit-code 1 --quiet --format template --show-suppressed
+    )
+}
+
+# Check for secrets that should not be shared.
+def "main sec secret" []: nothing -> string {
+    trivy fs . --scanners secret --include-dev-deps --exit-code 1
+}
+
+
+## Internal commands
+
+# Create a temporary copy of .pre-commit-config.yaml but with certain hooks removed.
+#
+# This is desired because pre-commit neither supports excluding certain hooks nor
+# including other config files.
+def filter_pre_commit_config [...filter_hooks: string] {
+    let orig_config = (open .pre-commit-config.yaml)
+    let orig_repos = $orig_config | get repos
+    let filtered_repos = $orig_repos | where {|item|
+        not ($item.hooks.0.id in $filter_hooks)
+    }
+    let new_config = $orig_config | update repos $filtered_repos
+    let temp_file = (mktemp -t --suffix .yaml)
+    $new_config | to yaml | save -a $temp_file
+    $temp_file
+}

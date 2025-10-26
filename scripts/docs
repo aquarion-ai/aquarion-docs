@@ -1,3 +1,4 @@
+#!/usr/bin/env nu
 # SPDX-FileCopyrightText: 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
 # SPDX-License-Identifier: AGPL-3.0-only
 
@@ -15,32 +16,24 @@
 # You should have received a copy of the GNU Affero General Public License along with
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
-# Custom for this project
 
-.devbox
-site
-.cache
+### Default commands
 
-# Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
-# Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode
+# Commands to generate and manage the documentation.
+def main []: nothing -> string {
+    main serve
+}
 
-### VisualStudioCode ###
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-!.vscode/*.code-snippets
+### Grouped tasks
 
-# Local History for Visual Studio Code
-.history/
+### Individual tasks
 
-# Built Visual Studio Code Extensions
-*.vsix
+# Serve the HTML docs.
+def "main serve" []: nothing -> string {
+    hatch run docs:serve
+}
 
-### VisualStudioCode Patch ###
-# Ignore all local history of files
-.history
-.ionide
-
-# End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
+# Build the HTML docs.
+def "main build" []: nothing -> string {
+    hatch run docs:build
+}

@@ -1,0 +1,49 @@
+#!/usr/bin/env nu
+# SPDX-FileCopyrightText: 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# Part of the aquarion-docs component of the Aquarion AI project.
+# Copyright (C) 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+#
+# This program is free software: you can redistribute it and/or modify it under the
+# terms of the GNU Affero General Public License as published by the Free Software
+# Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+
+# Provide various reporting capabilities.
+def main []: nothing -> string {
+    help main
+}
+
+# Report on last vulnerability scan results.
+def "main sec" []: nothing -> string {
+    let project_root = (git rev-parse --show-toplevel | str trim)
+    let report_path = ($project_root | path join ".cache" "trivy" "report.json")
+    trivy convert --scanners vuln $report_path
+}
+
+# Output only the highest detected Trivy severity level.
+def "main sec highest" []: nothing -> string {
+    let project_root = (git rev-parse --show-toplevel | str trim)
+    let template_path = ($project_root | path join "scripts" "trivy_highest.tpl")
+    let report_path = ($project_root | path join ".cache" "trivy" "report.json")
+    (
+        trivy convert $report_path --format template --template $"@($template_path)"
+        --quiet | str trim
+    )
+}
+
+# Output only the total number of Trivy vulnerabilities found.
+def "main sec total" []: nothing -> string {
+    let project_root = (git rev-parse --show-toplevel | str trim)
+    let template_path = ($project_root | path join "scripts" "trivy_total.tpl")
+    let report_path = ($project_root | path join ".cache" "trivy" "report.json")
+    trivy convert $report_path --format template --template $"@($template_path)" --quiet
+}
