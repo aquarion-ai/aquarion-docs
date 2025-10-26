@@ -446,7 +446,7 @@ subgraph app[Aquarion AI App]
   webui([Web User Interface])
 
   rpc_client([RPC Client])
-  
+
   subgraph sub[Internal Subprocess]
     direction LR
     rpc_server([RPC Server])

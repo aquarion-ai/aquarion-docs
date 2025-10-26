@@ -104,7 +104,7 @@ webclient & cli & direct & mobile <--> api
 ### Diagram 3: Distributed, Scalable System Variant C
 
 In this distributed system variant, each component runs as a separate microservice but
-does not use an Event Driven Architecture (EDA) for Inter Process Communication (IPC).  
+does not use an Event Driven Architecture (EDA) for Inter Process Communication (IPC).
 Here it falls on the API component to either:
 
 1. Handle all communication ochistration to and from all the other backend components,
@@ -153,7 +153,7 @@ each front end component connects directly to each back end component as needed.
 puts the burden of authentication and security on every backend component and requires
 that each front end keep track of every back end component.
 
-_Clearly this architecture is clearly a nightmare.  We will **not** be implementing it._
+_Clearly this architecture is a nightmare.  It will **not** be implemented or supported.
 
 I principle, however, each component can be scaled horizontally, load balanced, etc.
 
