@@ -29,7 +29,7 @@ def "main" []: nothing -> string {
         uv tool install -p $env.AQ_PYTHON_MINIMUM_VERSION --managed-python
         $"pre-commit~=($env.AQ_PRE_COMMIT_MINIMUM_VERSION)"
     )
-    # pre-commit install --install-hooks
+    pre-commit install --install-hooks
     (
         uv tool install -p $env.AQ_PYTHON_MINIMUM_VERSION --managed-python
         $"commitizen~=($env.AQ_COMMITIZEN_MINIMUM_VERSION)"

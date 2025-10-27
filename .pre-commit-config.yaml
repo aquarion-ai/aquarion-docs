@@ -1,0 +1,124 @@
+# SPDX-FileCopyrightText: 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# Part of the aquarion-docs component of the Aquarion AI project.
+# Copyright (C) 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+#
+# This program is free software: you can redistribute it and/or modify it under the
+# terms of the GNU Affero General Public License as published by the Free Software
+# Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+default_install_hook_types:
+  - pre-commit
+  - pre-push
+  - commit-msg
+default_stages: [pre-commit]
+default_language_version:
+  python: python3.12
+
+repos:
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.9.1
+    hooks:
+      - id: commitizen
+        additional_dependencies: [cz-conventional-gitmoji~=0.7.0]
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-executables-have-shebangs
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: check-toml
+      - id: check-vcs-permalinks
+      - id: check-yaml
+        args: [--unsafe]
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: file-contents-sorter
+        args: [--ignore-case]
+        files: project-words.txt
+      - id: fix-byte-order-marker
+      - id: forbid-submodules
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: pretty-format-json
+        args: [--autofix, --indent, "4"]
+      - id: trailing-whitespace
+
+  - repo: https://github.com/pre-commit/pygrep-hooks
+    rev: v1.10.0
+    hooks: # Most hooks from this repo are handled by Ruff instead.
+      - id: text-unicode-replacement-char
+
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.17.2
+    hooks:
+      - id: yamlfmt # See .yamlfmt.yaml for config.
+
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        additional_dependencies:
+          - tomli
+
+  - repo: https://github.com/ninoseki/uv-sort
+    rev: v0.6.1
+    hooks:
+      - id: uv-sort
+
+  - repo: https://github.com/astral-sh/uv-pre-commit
+    rev: 0.9.2
+    hooks:
+      - id: uv-lock
+
+  - repo: local
+    hooks:
+      - id: markdownlint-cli2
+        name: lint markdown
+        stages: [pre-commit]
+        entry: devbox
+        args: [run, markdownlint-cli2] # See .markdownlint-cli2.jsonc for config.
+        language: system
+        types: [markdown]
+
+  - repo: local
+    hooks:
+      - id: check_commit
+        name: check commit
+        stages: [pre-commit]
+        entry: devbox
+        args: [run, check, commit]
+        language: system
+        require_serial: true
+        always_run: true
+        fail_fast: true
+        pass_filenames: false
+        verbose: true
+
+  - repo: local
+    hooks:
+      - id: check_push
+        name: check push
+        stages: [pre-push]
+        entry: devbox
+        args: [run, check, push]
+        language: system
+        require_serial: true
+        always_run: true
+        fail_fast: true
+        pass_filenames: false
+        verbose: true

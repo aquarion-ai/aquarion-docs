@@ -1,5 +1,5 @@
 Aquarion
-asychronous
+codespell
 commitizen
 devbox
 FOSS
@@ -14,6 +14,7 @@ mktemp
 nushell
 ochistration
 Ollama
+tomli
 toplevel
 webclient
 webui
