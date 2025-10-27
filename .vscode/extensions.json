@@ -8,6 +8,6 @@
         "redhat.vscode-yaml",
         "editorconfig.editorconfig",
         "be5invis.toml",
-        "tamasfe.even-better-toml",
+        "tamasfe.even-better-toml"
     ]
 }

@@ -248,7 +248,7 @@ server <--> db
 In this single server variant, only the State Storage is kept as external service and
 all other components are included together in a single service.  All inter-component
 communication is handled within the server application itself in a multi-threaded,
-multi-process or asychronous safe manner.  This can be accomplished if the Web Client is
+multi-process or asynchronous safe manner.  This can be accomplished if the Web Client is
 built as a Single Page Application (SPA) or if all components are coded in the same
 programming language.
 
@@ -294,7 +294,7 @@ server <--> db
 In this single server variant, the Web Server and State Storage are are included with
 all the other components in a single service.  All inter-component communication is
 handled within the server application itself in a multi-threaded, multi-process or
-asychronous safe manner.  This can be accomplished if the Web Client is built as a
+asynchronous safe manner.  This can be accomplished if the Web Client is built as a
 Single Page Application (SPA) or if all components are coded in the same programming
 language.  Also, the State Storage would have to be handled internally via embedded
 database or files on disk, etc.
@@ -389,7 +389,7 @@ This User Interface (UI) can be coded in the same programming language as the ot
 components, allowing absolutely everything to run under a single runtime or even a
 single process.  No server components at all.  As with the single server variants above,
 all inter-component communication is handled in a multi-threaded, multi-process or
-asychronous safe manner.  Also, the State Storage would be handled internally via
+asynchronous safe manner.  Also, the State Storage would be handled internally via
 embedded database or files on disk, etc.
 
 This architecture provides a simplified single user experience but also requires the

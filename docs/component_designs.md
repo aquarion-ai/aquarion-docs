@@ -185,7 +185,7 @@ back <--> broker
 
 As with the EDA microservice designs presented above, if one removes the Event Broker
 and relies on Point to Point (P2P), a.k.a. Request - Response, APIs instead, then all
-the same patterns as above are possible, just with the tradeoff of more complex
+the same patterns as above are possible, just with the trade-off of more complex
 connection coordination.
 
 ### Diagram 6: P2P Microservice Variant A
