@@ -1,4 +1,5 @@
 Aquarion
+autonav
 codespell
 commitizen
 devbox
@@ -10,12 +11,14 @@ ionide
 Kokoro
 Krys
 libtts
+mkdocs
 mktemp
 nushell
 ochistration
 Ollama
 tomli
 toplevel
+uvenv
 webclient
 webui
 zerorpc

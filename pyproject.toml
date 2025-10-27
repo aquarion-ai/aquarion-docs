@@ -1,0 +1,105 @@
+# SPDX-FileCopyrightText: 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# Part of the aquarion-docs component of the Aquarion AI project.
+# Copyright (C) 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+#
+# This program is free software: you can redistribute it and/or modify it under the
+# terms of the GNU Affero General Public License as published by the Free Software
+# Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+### Core ###
+
+# NOTE: Hatch is only kept in this project to maintain tooling parity with the other
+#       Aquarion AI projects.  It is recognized that this does complicate things more
+#       thanks is strictly necessary.  But a consistent tool chain is a nice thing to
+#       have.
+
+[build-system]
+build-backend = "hatchling.build"
+requires = ["hatchling~=1.27.0", "hatch-semver~=2.0.2"]
+
+[project]
+authors = [{ name = "Krys Lawrence", email = "aquarion.5.krystopher@spamgourmet.org" }]
+dependencies = [
+    "mkdocs-api-autonav>=0.4.0",
+    "mkdocs-link-marker>=0.2.0",
+    "mkdocs-material[imaging]>=9.6.22",
+    "mkdocs-spellcheck[codespell]>=1.1.2",
+    "mkdocs>=1.6.1",
+]
+description = "Top-level documentation for Aquarion AI"
+keywords = ["aquarion", "ai", "documentation"]
+license = "AGPL-3.0-only"
+license-files = ["LICENSES/AGPL-3.0-only.txt"]
+name = "aquarion-docs"
+readme = "README.md"
+requires-python = ">=3.12"
+version = "0.1.0-rc.1"
+
+[project.urls]
+Changelog = "https://aquarion-docs.readthedocs.io/en/latest/changelog.html"
+Documentation = "https://aquarion-docs.readthedocs.io/en/latest/"
+Homepage = "https://github.com/aquarion-ai"
+Issues = "https://github.com/aquarion-ai/aquarion-docs/issues"
+Source = "https://github.com/aquarion-ai/aquarion-docs"
+
+### UV ###
+
+[dependency-groups]
+hatch-uv = ["uv~=0.8.14"]
+
+### Hatch ###
+
+[tool.hatch.env]
+requires = ["hatch-uvenv~=0.4.0"]
+
+[tool.hatch.version]
+path = "mkdocs.yml"
+pattern = "version: 'b(?P<version>[^']+)'"
+scheme = "semver"
+validate-bump = true
+
+[tool.hatch.build.targets.wheel]
+bypass-selection = true
+
+# Env: default
+
+[tool.hatch.envs.default]
+type = "uvenv"
+skip-install = true
+
+[tool.hatch.envs.default.scripts]
+serve = "mkdocs serve"
+build = "mkdocs build"
+
+# Env: hatch-uv
+
+[tool.hatch.envs.hatch-uv]
+groups = ["hatch-uv"]
+type = "uvenv"
+
+### codespell ###
+
+[tool.codespell]
+builtin = ["clear", "rare", "usage", "names"]
+check-filenames = true
+check-hidden = false
+ignore-words = ["project-words.txt"]
+quiet-level = 0
+skip = ["uv.lock"]
+write-changes = true
+
+### commitizen ###
+
+[tool.commitizen]
+major_version_zero = true
+name = "cz_gitmoji"
+update_changelog_on_bump = false
