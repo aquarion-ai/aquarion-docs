@@ -33,7 +33,9 @@ dependencies = [
     # Revisit in the future when it is resolved.
     "click==8.2.1",
     "mkdocs-link-marker>=0.2.0",
+    "mkdocs-macros-plugin>=1.4.0",
     "mkdocs-material[imaging]>=9.6.22",
+    "mkdocs-mermaid2-plugin>=1.2.3",
     "mkdocs-spellcheck[codespell]>=1.1.2",
     "mkdocs>=1.6.1",
 ]
@@ -44,7 +46,7 @@ license-files = ["LICENSES/AGPL-3.0-only.txt"]
 name = "aquarion-docs"
 readme = "README.md"
 requires-python = ">=3.12"
-version = "0.1.0-rc.1"
+dynamic = ["version"]
 
 [project.urls]
 Changelog = "https://aquarion-docs.readthedocs.io/en/latest/changelog.html"
@@ -65,7 +67,7 @@ requires = ["hatch-uvenv~=0.4.0"]
 
 [tool.hatch.version]
 path = "mkdocs.yml"
-pattern = "version: 'b(?P<version>[^']+)'"
+pattern = '\s*version: "(?P<version>[^"]+)"'
 scheme = "semver"
 validate-bump = true
 
