@@ -417,11 +417,11 @@ end
    think that any architecture that requires all components to be coded in the front end
    language, i.e. JavaScript, are off the table for consideration.
 
-1. As I have little interest in an all-mobile single application, and as I don't believe
-   we will have phones powerful enough to run decent LLMs any time soon, then this rules
-   out any mobile-related architecture that would require me to code all components in a
-   a mobile programming language, i.e. Java on Android and ObjectiveC on iPhone, or
-   whatever.
+1. As I have little interest in an all-mobile single application, and as I do not
+   believe we will have phones powerful enough to run decent LLMs any time soon, then
+   this rules out any mobile-related architecture that would require me to code all
+   components in a mobile programming language, i.e. Java on Android and ObjectiveC on
+   iPhone, or whatever.
 
 1. Given the above two conclusions, sticking to a client <--> server architecture for
    now is the way to go.  But I will need to keep in mind the Electron-based (or

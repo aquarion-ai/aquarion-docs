@@ -23,8 +23,8 @@ can be combined in different architectural patterns and using a variety of proto
 communicate with each other.
 
 _The key idea is to be able to mix and match the front and back parts while preserving
-he core logic.  This should be possible by having clear interface contracts between each
-of the 3 parts._
+the core logic.  This should be possible by having clear interface contracts between
+each of the 3 parts._
 
 ## Event Driven Microservice Designs
 
