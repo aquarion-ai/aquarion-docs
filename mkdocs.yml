@@ -1,0 +1,116 @@
+# SPDX-FileCopyrightText: 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+# SPDX-License-Identifier: AGPL-3.0-only
+
+# Part of the aquarion-docs component of the Aquarion AI project.
+# Copyright (C) 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
+#
+# This program is free software: you can redistribute it and/or modify it under the
+# terms of the GNU Affero General Public License as published by the Free Software
+# Foundation, version 3.
+#
+# This program is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE. See the GNU Affero General Public License for more details.
+#
+# You should have received a copy of the GNU Affero General Public License along with
+# this program. If not, see <https://www.gnu.org/licenses/>.
+
+site_name: aquarion-docs
+site_description: Top-level documentation for Aquarion AI
+site_author: Krys Lawrence
+copyright: © 2025-present by Krys Lawrence
+site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://aquarion-docs.readthedocs.io/en/latest/"]
+repo_url: https://github.com/aquarion-ai/aquarion-docs
+
+docs_dir: docs
+strict: true
+
+nav:
+  - Home: index.md
+  - changelog.md
+  - component_designs.md
+  - system_architectures.md
+  - contributing.md
+
+plugins:
+  - search
+  - social
+  - link-marker
+  - spellcheck:
+      backends:
+        - codespell:
+            dictionaries: [clear, rare, code, usage]
+      known_words: ../project-words.txt
+      ignore_code: no
+
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - search.suggest
+    - search.highlight
+    - navigation.instant
+    - navigation.tracking
+    - toc.follow
+    - navigation.top
+    - content.code.copy
+    - navigation.footer
+    - navigation.indexes
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+
+markdown_extensions:
+  - smarty
+  - toc:
+      permalink: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+  - pymdownx.smartsymbols
+  - admonition
+  - pymdownx.details
+  - def_list
+  - pymdownx.escapeall:
+      hardbreak: true
+  - pymdownx.snippets:
+      check_paths: true
+      dedent_subsections: true
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+
+watch:
+  - README.md
+  - CHANGELOG.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/aquarion-ai/aquarion-docs
+
+extra_javascript:
+  - javascript/readthedocs.js

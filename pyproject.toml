@@ -29,7 +29,9 @@ requires = ["hatchling~=1.27.0", "hatch-semver~=2.0.2"]
 [project]
 authors = [{ name = "Krys Lawrence", email = "aquarion.5.krystopher@spamgourmet.org" }]
 dependencies = [
-    "mkdocs-api-autonav>=0.4.0",
+    # https://github.com/squidfunk/mkdocs-material/issues/8478
+    # Revisit in the future when it is resolved.
+    "click==8.2.1",
     "mkdocs-link-marker>=0.2.0",
     "mkdocs-material[imaging]>=9.6.22",
     "mkdocs-spellcheck[codespell]>=1.1.2",
