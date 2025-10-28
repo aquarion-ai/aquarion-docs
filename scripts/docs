@@ -30,10 +30,10 @@ def main []: nothing -> string {
 
 # Serve the HTML docs.
 def "main serve" []: nothing -> string {
-    hatch run docs:serve
+    hatch run serve
 }
 
 # Build the HTML docs.
 def "main build" []: nothing -> string {
-    hatch run docs:build
+    hatch run build
 }
