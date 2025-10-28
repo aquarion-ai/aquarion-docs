@@ -164,7 +164,8 @@ each front end component connects directly to each back end component as needed.
 puts the burden of authentication and security on every backend component and requires
 that each front end keep track of every back end component.
 
-_Clearly this architecture is a nightmare.  It will **not** be implemented or supported.
+_Clearly this architecture is a nightmare.  It will **not** be implemented or
+supported._
 
 I principle, however, each component can be scaled horizontally, load balanced, etc.
 
