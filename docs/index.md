@@ -1,4 +1,9 @@
-# Aquarion AI - Top-Level Documentation {{ version }}
+---
+# YAML header
+render_macros: true
+---
+
+# Aquarion AI - Top-Level Documentation {{ config.extra.version }}
 
 <!--
     SPDX-FileCopyrightText: 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>

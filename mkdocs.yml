@@ -34,6 +34,10 @@ nav:
 
 plugins:
   - search
+  - mermaid2
+  - macros:
+      on_undefined: strict
+      render_by_default: false
   - social
   - link-marker
   - spellcheck:
@@ -87,6 +91,10 @@ markdown_extensions:
       pygments_lang_class: true
   - pymdownx.inlinehilite
   - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
   - pymdownx.smartsymbols
   - admonition
   - pymdownx.details
@@ -111,6 +119,7 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/aquarion-ai/aquarion-docs
+  version: "0.1.0-rc.1"
 
 extra_javascript:
   - javascript/readthedocs.js
