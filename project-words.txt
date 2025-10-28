@@ -8,6 +8,7 @@ escapeall
 fontawesome
 FOSS
 frontends
+GHSA
 GITMOJI
 hardbreak
 ignorefile
