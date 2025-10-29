@@ -22,26 +22,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-- Nothing yet.
+- Nothing yet, first release.
 
 ### Added
 
-- Nothing yet.
+- Core project structure and artifacts.
+- Dev environment & tools setup.
+- The Component Designs document.
+- The System Architectures document.
+- A documentation generation system.
 
 ### Fixed
 
-- Nothing yet.
+- Nothing yet, first release.
 
 ### Changed
 
-- Nothing yet.
+- Nothing yet, first release.
 
 ### Deprecated
 
-- Nothing yet.
+- Nothing yet, first release.
 
 ### Removed
 
-- Nothing yet.
+- Nothing yet, first release.
 
 <!-- ---- -->
