@@ -28,8 +28,12 @@ strict: true
 nav:
   - Home: index.md
   - changelog.md
-  - component_designs.md
-  - system_architectures.md
+  - High-Level Concepts:
+      - component_designs.md
+      - system_architectures.md
+  - Component Documentation:
+      - Libraries:
+          - Text-To-Speech: https://aquarion-libtts.readthedocs.io/
   - contributing.md
 
 plugins:
