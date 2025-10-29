@@ -21,6 +21,7 @@ site_author: Krys Lawrence
 copyright: © 2025-present by Krys Lawrence
 site_url: !ENV [READTHEDOCS_CANONICAL_URL, "https://aquarion-docs.readthedocs.io/en/latest/"]
 repo_url: https://github.com/aquarion-ai/aquarion-docs
+repo_name: aquarion-ai/aquarion-docs
 
 docs_dir: docs
 strict: true
@@ -65,6 +66,8 @@ theme:
     - content.code.copy
     - navigation.footer
     - navigation.indexes
+    - navigation.instant.progress
+    - navigation.expand
   palette:
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
