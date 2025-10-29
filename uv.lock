@@ -8,10 +8,10 @@ source = { editable = "." }
 dependencies = [
     { name = "click" },
     { name = "mkdocs" },
-    { name = "mkdocs-link-marker" },
     { name = "mkdocs-macros-plugin" },
     { name = "mkdocs-material", extra = ["imaging"] },
     { name = "mkdocs-mermaid2-plugin" },
+    { name = "mkdocs-open-in-new-tab" },
     { name = "mkdocs-spellcheck", extra = ["codespell"] },
 ]
 
@@ -24,10 +24,10 @@ hatch-uv = [
 requires-dist = [
     { name = "click", specifier = "==8.2.1" },
     { name = "mkdocs", specifier = ">=1.6.1" },
-    { name = "mkdocs-link-marker", specifier = ">=0.2.0" },
     { name = "mkdocs-macros-plugin", specifier = ">=1.4.0" },
     { name = "mkdocs-material", extras = ["imaging"], specifier = ">=9.6.22" },
     { name = "mkdocs-mermaid2-plugin", specifier = ">=1.2.3" },
+    { name = "mkdocs-open-in-new-tab", specifier = ">=1.0.8" },
     { name = "mkdocs-spellcheck", extras = ["codespell"], specifier = ">=1.1.2" },
 ]
 
@@ -457,19 +457,6 @@ wheels = [
 ]
 
 [[package]]
-name = "mkdocs-link-marker"
-version = "0.2.0"
-source = { registry = "https://pypi.org/simple" }
-dependencies = [
-    { name = "jinja2" },
-    { name = "mkdocs" },
-]
-sdist = { url = "https://files.pythonhosted.org/packages/98/a9/472488b460eaeac65816af9b4de221441411d225879c3109e410259b98ea/mkdocs_link_marker-0.2.0.tar.gz", hash = "sha256:8d194fd1666368ecf588f942bcc920071723776ef777961c72b7dc16da7c41a5", size = 2452, upload-time = "2025-07-20T20:59:01.752Z" }
-wheels = [
-    { url = "https://files.pythonhosted.org/packages/be/12/83d4a1304c70537d9ec16c752be2eaf32d2b7876c5a1b11649cce703c1ab/mkdocs_link_marker-0.2.0-py3-none-any.whl", hash = "sha256:1a6b92b3bc67349d8d49eb18278a4ad9e1a9c0037f4dcc76bbb9e4aaf969539d", size = 2936, upload-time = "2025-07-20T20:59:00.696Z" },
-]
-
-[[package]]
 name = "mkdocs-macros-plugin"
 version = "1.4.1"
 source = { registry = "https://pypi.org/simple" }
@@ -542,6 +529,18 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/2a/6d/308f443a558b6a97ce55782658174c0d07c414405cfc0a44d36ad37e36f9/mkdocs_mermaid2_plugin-1.2.3.tar.gz", hash = "sha256:fb6f901d53e5191e93db78f93f219cad926ccc4d51e176271ca5161b6cc5368c", size = 16220, upload-time = "2025-10-17T19:38:53.047Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/1a/4b/6fd6dd632019b7f522f1b1f794ab6115cd79890330986614be56fd18f0eb/mkdocs_mermaid2_plugin-1.2.3-py3-none-any.whl", hash = "sha256:33f60c582be623ed53829a96e19284fc7f1b74a1dbae78d4d2e47fe00c3e190d", size = 17299, upload-time = "2025-10-17T19:38:51.874Z" },
+]
+
+[[package]]
+name = "mkdocs-open-in-new-tab"
+version = "1.0.8"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "mkdocs" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/0a/0e/f72a506a21bdb27b807124e00c688226848a388d1fd3980b80ae3cc27203/mkdocs_open_in_new_tab-1.0.8.tar.gz", hash = "sha256:3e0dad08cc9938b0b13097be8e0aa435919de1eeb2d1a648e66b5dee8d57e048", size = 5791, upload-time = "2024-11-18T13:15:13.977Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/21/94/44f3c868495481c868d08eea065c82803f1affd8553d3383b782f497613c/mkdocs_open_in_new_tab-1.0.8-py3-none-any.whl", hash = "sha256:051d767a4467b12d89827e1fea0ec660b05b027c726317fe4fceee5456e36ad2", size = 7717, upload-time = "2024-11-18T13:15:12.286Z" },
 ]
 
 [[package]]

@@ -39,7 +39,8 @@ plugins:
       on_undefined: strict
       render_by_default: false
   - social
-  - link-marker
+  - open-in-new-tab:
+      add_icon: true
   - spellcheck:
       backends:
         - codespell:
