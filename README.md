@@ -78,6 +78,8 @@ Aquarion AI and *aquarion-docs* were created by Krys Lawrence.
 - `aquarion-docs` documentation is licensed under the terms of the
   [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) licence.
 
+- Aquarion AI Logo is [Designed by Freepik](http://www.freepik.com/).
+
 <!-- --8<-- [end:legal] -->
 
 ## Project Status
