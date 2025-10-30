@@ -87,7 +87,7 @@ This project follows the following standard practices:
   to do so.
 
 - `check push` runs all common tasks like pre-commit checks, , security checks,
-  licencing checks etc.
+  licensing checks etc.
 
 - On first run, `check push` will also download and install several files, etc.
 
