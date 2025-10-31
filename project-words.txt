@@ -15,6 +15,7 @@ hardbreak
 ignorefile
 inlinehilite
 ionide
+jetify
 Kokoro
 Krys
 libtts
@@ -26,6 +27,8 @@ ochistration
 Ollama
 pygments
 pymdownx
+pyproject
+schneegans
 smartsymbols
 superfences
 tomli
