@@ -34,7 +34,9 @@ superfences
 tomli
 toplevel
 uvenv
+venv
 venvs
+VIRTUALENV
 webclient
 webui
 zerorpc
