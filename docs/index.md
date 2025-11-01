@@ -3,7 +3,7 @@
 render_macros: true
 ---
 
-# Aquarion AI - Top-Level Documentation {{ config.extra.version }}
+# Aquarion AI - Top-Level Documentation v{{ config.extra.version }}
 
 <!--
     SPDX-FileCopyrightText: 2025-present Krys Lawrence <aquarion.5.krystopher@spamgourmet.org>
