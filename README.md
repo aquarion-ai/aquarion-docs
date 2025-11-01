@@ -16,12 +16,7 @@ Experiment in creating a scalable local AI voice chat bot.
 [![Static Badge](https://img.shields.io/badge/Part_of-Aquarion_AI-blue)](https://github.com/aquarion-ai)
 [![Code Licence](https://img.shields.io/badge/code_licence-AGPL_3.0_Only-red)](https://www.gnu.org/licenses/agpl-3.0.en.html#license-text)
 [![Docs Licence](https://img.shields.io/badge/docs_licence-CC_BY_SA_4.0-red)](https://creativecommons.org/licenses/by-sa/4.0/)
-
-<!-- markdownlint-disable MD013 -->
-<!--
 [![REUSE status](https://api.reuse.software/badge/github.com/aquarion-ai/aquarion-docs)](https://api.reuse.software/info/github.com/aquarion-ai/aquarion-docs)
--->
-<!-- markdownlint-enable MD013 -->
 
 [![build](https://github.com/aquarion-ai/aquarion-docs/actions/workflows/build.yml/badge.svg)](https://github.com/aquarion-ai/aquarion-docs/actions/workflows/build.yml)
 [![Total Vulnerabilities](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/justkrys/079b402971d82c07d05c74f37c57b088/raw/aquarion-ai_aquarion-docs__main__sec_total.json)](https://github.com/aquarion-ai/aquarion-docs/actions)
