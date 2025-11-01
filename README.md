@@ -13,6 +13,42 @@
 
 Experiment in creating a scalable local AI voice chat bot.
 
+[![Static Badge](https://img.shields.io/badge/Part_of-Aquarion_AI-blue)](https://github.com/aquarion-ai)
+[![Code Licence](https://img.shields.io/badge/code_licence-AGPL_3.0_Only-red)](https://www.gnu.org/licenses/agpl-3.0.en.html#license-text)
+[![Docs Licence](https://img.shields.io/badge/docs_licence-CC_BY_SA_4.0-red)](https://creativecommons.org/licenses/by-sa/4.0/)
+
+<!-- markdownlint-disable MD013 -->
+<!--
+[![REUSE status](https://api.reuse.software/badge/github.com/aquarion-ai/aquarion-docs)](https://api.reuse.software/info/github.com/aquarion-ai/aquarion-docs)
+-->
+<!-- markdownlint-enable MD013 -->
+
+[![build](https://github.com/aquarion-ai/aquarion-docs/actions/workflows/build.yml/badge.svg)](https://github.com/aquarion-ai/aquarion-docs/actions/workflows/build.yml)
+[![Total Vulnerabilities](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/justkrys/079b402971d82c07d05c74f37c57b088/raw/aquarion-ai_aquarion-docs__main__sec_total.json)](https://github.com/aquarion-ai/aquarion-docs/actions)
+[![Highest Vulnerability Severity](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/justkrys/079b402971d82c07d05c74f37c57b088/raw/aquarion-ai_aquarion-docs__main__sec_highest.json)](https://github.com/aquarion-ai/aquarion-docs/actions)
+[![Docs build](https://app.readthedocs.org/projects/aquarion-docs/badge/?version=latest)](https://aquarion-docs.readthedocs.io/en/latest/)
+
+[![GitHub Open Issues](https://img.shields.io/github/issues/aquarion-ai/aquarion-docs)](https://github.com/aquarion-ai/aquarion-docs/issues)
+[![GitHub Closed Issues](https://img.shields.io/github/issues-closed/aquarion-ai/aquarion-docs)](https://github.com/aquarion-ai/aquarion-docs/issues)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/aquarion-ai/aquarion-docs)](https://github.com/aquarion-ai/aquarion-docs/activity)
+[![GitHub last commit](https://img.shields.io/github/last-commit/aquarion-ai/aquarion-docs)](https://github.com/aquarion-ai/aquarion-docs/activity)
+
+<!-- markdownlint-disable MD013 -->
+<!--
+[![GitHub Release Date](https://img.shields.io/github/release-date/aquarion-ai/aquarion-docs)](https://github.com/aquarion-ai/aquarion-docs)
+-->
+<!-- markdownlint-enable MD013 -->
+
+[![GitHub Repo stars](https://img.shields.io/github/stars/aquarion-ai/aquarion-docs)](https://github.com/aquarion-ai/aquarion-docs)
+[![GitHub watchers](https://img.shields.io/github/watchers/aquarion-ai/aquarion-docs)](https://github.com/aquarion-ai/aquarion-docs)
+[![GitHub forks](https://img.shields.io/github/forks/aquarion-ai/aquarion-docs)](https://github.com/aquarion-ai/aquarion-docs)
+
+[![Built with Devbox](https://www.jetify.com/img/devbox/shield_galaxy.svg)](https://www.jetify.com/devbox/docs/contributor-quickstart/)
+[![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit)
+[![Hatch project](https://img.shields.io/badge/%F0%9F%A5%9A-Hatch-4051b5.svg)](https://github.com/pypa/hatch)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
+[![Built with Material for MkDocs](https://img.shields.io/badge/Material_for_MkDocs-526CFE?logo=MaterialForMkDocs&logoColor=white)](https://squidfunk.github.io/mkdocs-material/)
+
 <!-- --8<-- [start:description] -->
 
 ## Description
