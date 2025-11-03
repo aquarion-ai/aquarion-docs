@@ -127,7 +127,7 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/aquarion-ai/aquarion-docs
-  version: "0.1.0-rc.1"
+  version: "0.1.0"
 
 extra_javascript:
   - javascript/readthedocs.js
