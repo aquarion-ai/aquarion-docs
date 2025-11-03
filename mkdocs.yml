@@ -32,9 +32,7 @@ nav:
   - High-Level Concepts:
       - component_designs.md
       - system_architectures.md
-  - Component Documentation:
-      - Libraries:
-          - Text-To-Speech: https://aquarion-libtts.readthedocs.io/
+  - components.md
   - contributing.md
 
 plugins:
