@@ -116,4 +116,4 @@ Aquarion AI and *aquarion-docs* were created by Krys Lawrence.
 ## Project Status
 
 This project is in the Pre-Alpha stage of development.  Early days, lots of bugs and
-anything change.
+anything can change.
