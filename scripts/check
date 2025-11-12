@@ -54,6 +54,7 @@ def "main commit" []: nothing -> string {
 #   - Licence checking
 def "main push" []: nothing -> string {
     main pre all
+    main docs
     main sec
     main licences
 }
@@ -78,6 +79,8 @@ def "main sec" []: nothing -> string {
 def --wrapped "main pre" [
     ...rest: string # Extra arguments for pre-commit
 ]: nothing -> any {
+    pre-commit validate-config
+    pre-commit validate-manifest
     let $temp_config = (filter_pre_commit_config "check_commit" "check_push")
     echo $temp_config
     pre-commit run -c $temp_config --all-files ...$rest
@@ -111,6 +114,12 @@ def --wrapped "main licences" [
     ...rest: string # Extra arguments for pre-commit
 ]: nothing -> string {
     reuse lint
+}
+
+# Run documentation building check
+def "main docs" []: nothing -> string {
+    # docs build return non-zero exit code if there is any problem.
+    docs build
 }
 
 ### Individual security tasks
