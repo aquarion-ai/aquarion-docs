@@ -45,12 +45,12 @@ tools = [
 [package.metadata]
 requires-dist = [
     { name = "click", specifier = "==8.2.1" },
-    { name = "mkdocs", specifier = ">=1.6.1" },
-    { name = "mkdocs-macros-plugin", specifier = ">=1.4.0" },
-    { name = "mkdocs-material", extras = ["imaging"], specifier = ">=9.6.22" },
-    { name = "mkdocs-mermaid2-plugin", specifier = ">=1.2.3" },
-    { name = "mkdocs-open-in-new-tab", specifier = ">=1.0.8" },
-    { name = "mkdocs-spellcheck", extras = ["codespell"], specifier = ">=1.1.2" },
+    { name = "mkdocs", specifier = "~=1.6.1" },
+    { name = "mkdocs-macros-plugin", specifier = "~=1.4.0" },
+    { name = "mkdocs-material", extras = ["imaging"], specifier = "~=9.6.22" },
+    { name = "mkdocs-mermaid2-plugin", specifier = "~=1.2.3" },
+    { name = "mkdocs-open-in-new-tab", specifier = "~=1.0.8" },
+    { name = "mkdocs-spellcheck", extras = ["codespell"], specifier = "~=1.1.2" },
 ]
 
 [package.metadata.requires-dev]
