@@ -17,9 +17,9 @@
 
 # Custom for this project
 
-.devbox
-site
-.cache
+.devbox/
+site/
+.local/
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode

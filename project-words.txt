@@ -25,6 +25,7 @@ mktemp
 nushell
 ochistration
 Ollama
+pycache
 pygments
 pymdownx
 pyproject

@@ -22,7 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Security
 
-- Nothing yet.
+- [CVE-2025-8869](https://nvd.nist.gov/vuln/detail/cve-2025-8869) determined to not be
+  a risk because the minimum version Python version of *aquarion-libtts* is 3.12.
 
 ### Added
 
@@ -34,7 +35,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Nothing yet.
+- Development environment and scripts changed.
+    - `clean` script behaves differently and has different parameters.
 
 ### Deprecated
 

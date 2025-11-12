@@ -17,35 +17,44 @@
 # this program. If not, see <https://www.gnu.org/licenses/>.
 
 
-# Uninstall and clean up this development environment.
+# Clean up this development environment.
 #
-# This removes all cashes, builds artifacts, virtual environments, local Python
-# versions, etc.
+# By default it just cleans up generated artifacts like build distributions, generated
+# docs, etc.
 #
-# To restore the environment, follow the developer installation instructions.
+# To restore the environment, run the "init" script.
 def main [
-    --caches (-c)  # Also clean all caches
+    --envs (-e)  # Also clean virtual environments
+    --full (-f)  # Also clean all local data, caches, configs & pre-commit hooks
     --devbox (-d)  # Also remove the devbox shell
 ] : nothing -> nothing {
-    if $caches {
-        remove_uv_cache
-        remove_local_cache
-        remove_pre-commit_tools
-    }
     remove_local_builds
-    remove_hatch_envs
-    remove_uv_tools
-    remove_uv_pythons
+    if $envs or $full {
+        remove_hatch_envs
+    }
+    if $full {
+        # Note: The order of operations matters here.
+        remove_pre_commit_hooks
+        remove_uv_tools
+        remove_uv_pythons
+        remove_local
+    }
     if $devbox {
         remove_devbox_shell
-        if $caches {
-            print "To also clean the devbox (nix) cache, exit the devbox shell and run:"
-            print "  nix-collect-garbage -d"
-        }
+        print "If you also want to clean the devbox (NIX) cache, exit the devbox shell and run:"
+        print "  nix-collect-garbage -d"
     }
 }
 
 ## Internal commands
+
+def remove_local_builds []: nothing -> nothing {
+    print "Removing local builds"
+    rm -rf site
+    for dir in (glob **/__pycache__) {
+        rm -rf $dir
+    }
+}
 
 def remove_hatch_envs []: nothing -> nothing {
     let envs = (
@@ -60,57 +69,27 @@ def remove_hatch_envs []: nothing -> nothing {
     }
 }
 
+def remove_pre_commit_hooks []: nothing -> nothing {
+    pre-commit uninstall
+    pre-commit clean
+    pre-commit gc
+}
+
 def remove_uv_tools []: nothing -> nothing {
-    let tools = (
-        uv tool list
-        | lines
-        | find -n -v -r '^-'
-        | split column ' '
-        | each {$in.column1 | str trim}
-    )
-    for tool in ($tools) {
-        print $"Removing uv tool: ($tool)"
-        uv tool uninstall $tool
-    }
+    print (uv tool uninstall --all)
 }
 
 def remove_uv_pythons []: nothing -> nothing {
-    let pythons = (
-        uv python list --only-installed
-        | detect columns -n
-        | find '/uv/'
-        | each {$in.column0 | str trim}
-    )
-    for python in ($pythons) {
-        print $"Removing uv python: ($python)"
-        uv python uninstall $python
-    }
+    print (uv python uninstall --all)
 }
 
-def remove_uv_cache []: nothing -> nothing {
-    print "Removing uv cache"
-    uv cache clean
+def remove_local []: nothing -> nothing {
+    print "Removing local data, caches & configs"
+    rm -rf .local
 }
-
-def remove_local_cache []: nothing -> nothing {
-    print "Removing local cache"
-    rm -rf .cache
-}
-
-def remove_local_builds []: nothing -> nothing {
-    print "Removing local builds"
-    rm -rf site
-}
-
 
 def remove_devbox_shell []: nothing -> nothing {
     print "Removing devbox shell"
     rm -rf .devbox
     print $"(ansi red)ATTENTION: YOU MUST EXIT THE DEVBOX SHELL IMMEDIATELY AFTER THIS COMMAND!(ansi reset)"
-}
-
-def remove_pre-commit_tools []: nothing -> nothing {
-    print "Removing pre-commit tools"
-    pre-commit clean
-    pre-commit gc
 }
